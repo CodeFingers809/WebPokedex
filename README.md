@@ -1,3 +1,9 @@
+# WebPokedex
+
+WebPokedex is a simple NextJs website styled using TailwindCSS. WebPokedex uses an external API called PokeAPI to display all Pokemons and search Pokemons and get their stats and types. WebPokedex was designed using Figma and the UI was made possible by using TailwindCSS's utility classes. It also makes use of Axios for making API calls on the PokeAPI server.
+
+## NextJS auto generated text starts here:
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
