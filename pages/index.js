@@ -8,7 +8,7 @@ import Layout from "../components/Layout";
 
 export default function Home({pokeData, colors }) {
   //pageno
-  const [pageno, setPageno] = useState(44);
+  const [pageno, setPageno] = useState(0);
   //array of pokemons sliced from pokedata depending on the pageno
   const [pokeArr, setPokeArr] = useState(pokeData.slice(0, 20));
   //change pageno

@@ -5,11 +5,11 @@ WebPokedex is a simple NextJs website styled using TailwindCSS. WebPokedex uses 
 ## Tech Stack
 - NextJS as a Framework
 - TailwindCSS for styling
-- AxiosJS for api calls
 
 ## Latest Fixes
-- Fixed the title to be the name of the pokemon instead of the URL
-- Fixed the color of the pokemon types not showing up
+- Changed the data API from PokeAPI to Pokeserve
+- Chnaged the UI
+- Changed how the stats are displayed in the pokemon page
 
 ## NextJS auto generated text starts here:
 
