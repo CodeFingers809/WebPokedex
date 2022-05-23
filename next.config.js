@@ -5,6 +5,7 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-}
+  images: { domains: ["raw.githubusercontent.com"] },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
