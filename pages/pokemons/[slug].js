@@ -31,6 +31,7 @@ const Slug = ({ pokeman, colors }) => {
             <div className="flex flex-col">
               {/* name */}
               <h1 className="font-semibold text-4xl w-full">
+                <span className="font-semibold text-4xl mr-4">#{pokeman.id}</span>
                 {pokeman.name.english}
               </h1>
               {/* other langs */}
@@ -64,7 +65,7 @@ const Slug = ({ pokeman, colors }) => {
                   return (
                     <span
                       key={typeIndex}
-                      className="font-medium mr-2 px-5 py-2 rounded border"
+                      className="font-medium mr-2 px-5 py-2 rounded border text-lg sm:text-xl"
                       style={{
                         backgroundColor: colors[type.toLowerCase()] + "27",
                         borderColor: colors[type.toLowerCase()],

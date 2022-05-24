@@ -5,7 +5,9 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  images: { domains: ["raw.githubusercontent.com"] },
+  images: { domains: ["raw.githubusercontent.com"],
+  minimumCacheTTL:604800,
+},
 };
 
 module.exports = nextConfig;

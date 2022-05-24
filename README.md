@@ -7,9 +7,23 @@ WebPokedex is a simple NextJs website styled using TailwindCSS. WebPokedex uses 
 - TailwindCSS for styling
 
 ## Latest Fixes
-- Changed the data API from PokeAPI to Pokeserve
-- Chnaged the UI
-- Changed how the stats are displayed in the pokemon page
+- Added search functionality
+- Added ability to filter results
+- Few UI changes
+
+## Current Chrome LightHouse Scores
+
+### Homepage(Mobile)
+[Score](homepage-mobile.png)
+
+### Details Page(Mobile)
+[Score](details-mobile.png)
+
+### Homepage(Desktop)
+[Score](homepage-desktop.png)
+
+### Details Page(Desktop)
+[Score](details-desktop.png)
 
 ## NextJS auto generated text starts here:
 
