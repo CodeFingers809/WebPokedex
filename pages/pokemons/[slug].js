@@ -65,11 +65,9 @@ const Slug = ({ pokeman, colors }) => {
                   return (
                     <span
                       key={typeIndex}
-                      className="font-medium mr-2 px-5 py-2 rounded border text-lg sm:text-xl"
+                      className="font-semibold tracking-wide mr-2 px-5 py-2 rounded text-lg sm:text-xl text-white"
                       style={{
-                        backgroundColor: colors[type.toLowerCase()] + "27",
-                        borderColor: colors[type.toLowerCase()],
-                        color: colors[type.toLowerCase()],
+                        backgroundColor: colors[type.toLowerCase()]
                       }}
                     >
                       {type}
@@ -91,19 +89,19 @@ const Slug = ({ pokeman, colors }) => {
                           statColor = "#da4343";
                           break;
                         case "Attack":
-                          statPercentFactor = 1.99;
+                          statPercentFactor = 1.81;
                           statColor = "#f38d45";
                           break;
                         case "Defense":
-                          statPercentFactor = 2.5;
+                          statPercentFactor = 2.3;
                           statColor = "#f3d14a";
                           break;
                         case "Sp. Attack":
-                          statPercentFactor = 1.94;
+                          statPercentFactor = 1.73;
                           statColor = "#547fe4";
                           break;
                         case "Sp. Defense":
-                          statPercentFactor = 2.5;
+                          statPercentFactor = 2.3;
                           statColor = "#84df57";
                           break;
                         case "Speed":
@@ -117,7 +115,7 @@ const Slug = ({ pokeman, colors }) => {
                             <p className="font-semibold text-lg">{stat}</p>
                             <p>{pokeman.base[stat]}</p>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                          <div className="w-full bg-gray-600 rounded-full h-2.5">
                             <div
                               className="h-2.5 rounded-full"
                               style={{

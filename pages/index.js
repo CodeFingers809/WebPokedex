@@ -17,7 +17,7 @@ export default function Home({ pokeData, colors }) {
   const [searchResults, setSearchResults] = useState(pokeData);
   // filtered search results array
   const [filteredArr, setFilteredArr] = useState(pokeData);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("All");
   //updating pokearr when pageno changes
   useEffect(() => {
     setPokeArr(searchResults.slice(pageno * 20, pageno * 20 + 20));
@@ -119,8 +119,9 @@ export default function Home({ pokeData, colors }) {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 sm:p-2.5"
             value={filter}
             onChange={handleFilterChange}
+            defaultValue="All"
           >
-            <option value="All" defaultValue>
+            <option value="All" >
               All
             </option>
             <option value="Normal">Normal</option>
@@ -188,7 +189,7 @@ export default function Home({ pokeData, colors }) {
         </div>
         <div className="flex justify-between pb-8">
           <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none disabled:bg-gray-600"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mx-2 mb-2 focus:outline-none disabled:bg-gray-600"
             onClick={handlePrev}
             disabled={pageno === 0 ? true : false}
           >
