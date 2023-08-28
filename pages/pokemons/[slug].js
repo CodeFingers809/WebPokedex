@@ -4,6 +4,7 @@
 //imports
 import React from "react";
 import Layout from "../../components/Layout";
+import pokeData from "../../pokedex.json";
 
 const Slug = ({ pokeman, colors }) => {
   if (pokeman.message) {
@@ -31,7 +32,9 @@ const Slug = ({ pokeman, colors }) => {
             <div className="flex flex-col">
               {/* name */}
               <h1 className="font-semibold text-4xl w-full">
-                <span className="font-semibold text-4xl mr-4">#{pokeman.id}</span>
+                <span className="font-semibold text-4xl mr-4">
+                  #{pokeman.id}
+                </span>
                 {pokeman.name.english}
               </h1>
               {/* other langs */}
@@ -67,7 +70,7 @@ const Slug = ({ pokeman, colors }) => {
                       key={typeIndex}
                       className="font-semibold tracking-wide mr-2 px-5 py-2 rounded text-lg sm:text-xl text-white"
                       style={{
-                        backgroundColor: colors[type.toLowerCase()]
+                        backgroundColor: colors[type.toLowerCase()],
                       }}
                     >
                       {type}
@@ -144,40 +147,35 @@ const Slug = ({ pokeman, colors }) => {
 
 // props
 export async function getServerSideProps({ query }) {
-  try {
-    const res = await fetch(`https://api.pikaserve.xyz/pokemon/${query.slug}`);
-    const pokeman = await res.json();
-    return {
-      props: {
-        pokeman,
-        colors: {
-          // ["Normal", "Fire", "Water", "Electric", "Grass", "Ice",
-          //        "Fighting", "Poison", "Ground", "Flying", "Psychic",
-          //        "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"]
-          normal: "#A8A77A",
-          fire: "#EE8130",
-          water: "#6390F0",
-          electric: "#F7D02C",
-          grass: "#7AC74C",
-          ice: "#96D9D6",
-          fighting: "#C22E28",
-          poison: "#A33EA1",
-          ground: "#E2BF65",
-          flying: "#A98FF3",
-          psychic: "#F95587",
-          bug: "#A6B91A",
-          rock: "#B6A136",
-          ghost: "#735797",
-          dragon: "#6F35FC",
-          dark: "#705746",
-          steel: "#B7B7CE",
-          fairy: "#D685AD",
-        },
+  let pokeman = pokeData[parseInt(query.slug) - 1];
+  return {
+    props: {
+      pokeman,
+      colors: {
+        // ["Normal", "Fire", "Water", "Electric", "Grass", "Ice",
+        //        "Fighting", "Poison", "Ground", "Flying", "Psychic",
+        //        "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"]
+        normal: "#A8A77A",
+        fire: "#EE8130",
+        water: "#6390F0",
+        electric: "#F7D02C",
+        grass: "#7AC74C",
+        ice: "#96D9D6",
+        fighting: "#C22E28",
+        poison: "#A33EA1",
+        ground: "#E2BF65",
+        flying: "#A98FF3",
+        psychic: "#F95587",
+        bug: "#A6B91A",
+        rock: "#B6A136",
+        ghost: "#735797",
+        dragon: "#6F35FC",
+        dark: "#705746",
+        steel: "#B7B7CE",
+        fairy: "#D685AD",
       },
-    };
-  } catch (err) {
-    console.log(err);
-  }
+    },
+  };
 }
 
 export default Slug;

@@ -5,8 +5,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import pokeData from "../pokedex.json";
 
-export default function Home({ pokeData, colors }) {
+export default function Home({ colors }) {
   //pageno
   const [pageno, setPageno] = useState(0);
   //array of pokemons sliced from pokedata depending on the pageno
@@ -42,10 +43,15 @@ export default function Home({ pokeData, colors }) {
     const selFilter = e.target.value;
     setFilter(e.target.value);
     if (selFilter === "All") {
-      if(input.length===0) setFilteredArr(pokeData)
-      else setFilteredArr(pokeData.filter(pokeman=>{
-        return pokeman.name.english.toLowerCase().includes(input.toLowerCase())
-      }))
+      if (input.length === 0) setFilteredArr(pokeData);
+      else
+        setFilteredArr(
+          pokeData.filter((pokeman) => {
+            return pokeman.name.english
+              .toLowerCase()
+              .includes(input.toLowerCase());
+          })
+        );
       return;
     }
     let temp = [];
@@ -68,11 +74,13 @@ export default function Home({ pokeData, colors }) {
     const value = e.target.value;
     setInput(value);
     if (value.length === 0) {
-      if(filter==="All")
-      setSearchResults(pokeData);
-      else setSearchResults(pokeData.filter(pokeman=>{
-        return pokeman.type.includes(filter)
-      }));
+      if (filter === "All") setSearchResults(pokeData);
+      else
+        setSearchResults(
+          pokeData.filter((pokeman) => {
+            return pokeman.type.includes(filter);
+          })
+        );
       return;
     }
     let temp = [];
@@ -81,9 +89,7 @@ export default function Home({ pokeData, colors }) {
         return pokeman.type.includes(filter);
       });
       temp = temp2.filter((pokeman) => {
-        return (
-          pokeman.name.english.toLowerCase().includes(value.toLowerCase())
-        );
+        return pokeman.name.english.toLowerCase().includes(value.toLowerCase());
       });
     } else {
       temp = pokeData.filter((pokeman) => {
@@ -121,9 +127,7 @@ export default function Home({ pokeData, colors }) {
             onChange={handleFilterChange}
             defaultValue="All"
           >
-            <option value="All" >
-              All
-            </option>
+            <option value="All">All</option>
             <option value="Normal">Normal</option>
             <option value="Fire">Fire</option>
             <option value="Water">Water</option>
@@ -209,35 +213,28 @@ export default function Home({ pokeData, colors }) {
 }
 
 export async function getStaticProps(context) {
-  try {
-    const res = await fetch("https://api.pikaserve.xyz/pokemon/all");
-    const data = await res.json();
-    return {
-      props: {
-        pokeData: data,
-        colors: {
-          normal: "#A8A77A",
-          fire: "#EE8130",
-          water: "#6390F0",
-          electric: "#F7D02C",
-          grass: "#7AC74C",
-          ice: "#96D9D6",
-          fighting: "#C22E28",
-          poison: "#A33EA1",
-          ground: "#E2BF65",
-          flying: "#A98FF3",
-          psychic: "#F95587",
-          bug: "#A6B91A",
-          rock: "#B6A136",
-          ghost: "#735797",
-          dragon: "#6F35FC",
-          dark: "#705746",
-          steel: "#B7B7CE",
-          fairy: "#D685AD",
-        },
+  return {
+    props: {
+      colors: {
+        normal: "#A8A77A",
+        fire: "#EE8130",
+        water: "#6390F0",
+        electric: "#F7D02C",
+        grass: "#7AC74C",
+        ice: "#96D9D6",
+        fighting: "#C22E28",
+        poison: "#A33EA1",
+        ground: "#E2BF65",
+        flying: "#A98FF3",
+        psychic: "#F95587",
+        bug: "#A6B91A",
+        rock: "#B6A136",
+        ghost: "#735797",
+        dragon: "#6F35FC",
+        dark: "#705746",
+        steel: "#B7B7CE",
+        fairy: "#D685AD",
       },
-    };
-  } catch (err) {
-    console.log(err);
-  }
+    },
+  };
 }
